@@ -70,10 +70,9 @@ class OcrFromCropRequest(BaseModel):
     provider: str = "easyocr"
     prompt: str = "Baca teks pada gambar."
 
-# ===== STARTUP =====
 @app.on_event("startup")
 async def startup():
-    await run_in_threadpool(warmup_easyocr)
+    print("Server started (no warmup)")
 
 @app.get("/")
 def root():
