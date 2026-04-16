@@ -155,9 +155,6 @@ class OcrAutoRequest(BaseModel):
     mime: str = Field(default="image/jpeg")
     prompt: str = Field(default="Baca teks pada gambar dan keluarkan JSON saja.")
 
-
-app = FastAPI(title="VLM OCR Proxy", version="0.1.0")
-
 _EASYOCR_WARMED = False
 
 
