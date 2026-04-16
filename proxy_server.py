@@ -27,11 +27,13 @@ from locate_text import (
     crop_image,
 )
 
-app = FastAPI(title="VLM OCR Proxy", version="0.1.0")
+from fastapi import FastAPI
+
+app = FastAPI()
 
 @app.get("/")
 def root():
-    return {"message": "Backend jalan"}
+    return {"status": "OK BRO"}
 
 
 ROOT = Path(__file__).resolve().parent
