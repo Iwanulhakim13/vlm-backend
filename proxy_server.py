@@ -31,8 +31,11 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
+print("🔥 APP STARTED")
+
 @app.get("/")
 def root():
+    print("🔥 ROOT KEHIT")
     return {"status": "OK BRO"}
 
 
