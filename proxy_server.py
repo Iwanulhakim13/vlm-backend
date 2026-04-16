@@ -10,11 +10,15 @@ import requests
 from requests.exceptions import ChunkedEncodingError, ConnectionError as RequestsConnectionError, ReadTimeout
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
+app = FastAPI()
+@app.get("/")
+def root():
+    return {"message": "Backend jalan"}
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.concurrency import run_in_threadpool
 from pydantic import BaseModel, Field
 
-from VLM.locate_text import (
+from locate_text import (
     BBoxPx,
     QueryMode,
     decode_base64_image,
