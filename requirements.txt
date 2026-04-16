@@ -1,5 +1,5 @@
-flask
-flask-cors
+fastapi
+uvicorn[standard]
 requests
 python-dotenv
 pillow
