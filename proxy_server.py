@@ -9,7 +9,18 @@ from typing import Any
 import requests
 from requests.exceptions import ChunkedEncodingError, ConnectionError as RequestsConnectionError, ReadTimeout
 from dotenv import load_dotenv
+print("🔥 PROXY_SERVER KELOAD")
 from fastapi import FastAPI, HTTPException
+
+app = FastAPI()
+
+print("🔥 APP STARTED")
+
+@app.get("/")
+def root():
+    print("🔥 ROOT KEHIT")
+    return {"status": "OK BRO"}
+    
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.concurrency import run_in_threadpool
 from pydantic import BaseModel, Field
@@ -26,18 +37,6 @@ from locate_text import (
     pick_best_match,
     crop_image,
 )
-
-from fastapi import FastAPI
-
-app = FastAPI()
-
-print("🔥 APP STARTED")
-
-@app.get("/")
-def root():
-    print("🔥 ROOT KEHIT")
-    return {"status": "OK BRO"}
-
 
 ROOT = Path(__file__).resolve().parent
 load_dotenv(dotenv_path=ROOT / ".env")
