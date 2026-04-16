@@ -10,10 +10,6 @@ import requests
 from requests.exceptions import ChunkedEncodingError, ConnectionError as RequestsConnectionError, ReadTimeout
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
-app = FastAPI()
-@app.get("/")
-def root():
-    return {"message": "Backend jalan"}
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.concurrency import run_in_threadpool
 from pydantic import BaseModel, Field
@@ -30,6 +26,12 @@ from locate_text import (
     pick_best_match,
     crop_image,
 )
+
+app = FastAPI(title="VLM OCR Proxy", version="0.1.0")
+
+@app.get("/")
+def root():
+    return {"message": "Backend jalan"}
 
 
 ROOT = Path(__file__).resolve().parent
